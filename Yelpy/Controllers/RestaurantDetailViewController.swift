@@ -33,7 +33,7 @@ class RestaurantDetailViewController: UIViewController {
     func configureOutlets() {
         nameLabel.text = r.name
         reviewsLabel.text = String(r.reviews)
-        starImage.image = Restaurant.setImageFor(stars: r.rating)
+        starImage.image = Stars.dict[r.rating]!
         headerImage.af.setImage(withURL: r.imageURL!)
         
         // Extra: Add tint opacity to image to make text stand out
