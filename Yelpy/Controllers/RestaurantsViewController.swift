@@ -8,6 +8,7 @@
 
 import UIKit
 import AlamofireImage
+import Lottie
 
 class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
@@ -22,11 +23,33 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
     @IBOutlet weak var searchBar: UISearchBar!
     var filteredRestaurants: [Restaurant] = []
     
-    
+    // creating an animation view
+    private var animationView: AnimationView?
     
     // ––––– TODO: Add searchController configurations
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Start Animation
+        
+        /// Load from a specific bundle/
+        animationView = .init(name: "4762-food-carousel")
+        animationView!.frame = view.bounds
+        animationView!.contentMode = .scaleAspectFit
+        
+        // 4. Set animation loop mode
+        
+        animationView!.loopMode = .loop
+        
+        // 5. Adjust animation speed
+        
+        animationView!.animationSpeed = 5
+        
+        view.addSubview(animationView!)
+        
+        // 6. Play animation
+        
+        animationView!.play()
         
         // Table View
         tableView.delegate = self
@@ -38,6 +61,7 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
         
         // Get Data from API
         getAPIData()
+        
     }
     
     
@@ -47,9 +71,14 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
             guard let restaurants = restaurants else {
                 return
             }
+            print("reload")
             self.restaurantsArray = restaurants
             self.filteredRestaurants = restaurants
+            self.animationView?.stop()
+            self.view.subviews.last?.removeFromSuperview()
+
             self.tableView.reloadData()
+            
         }
     }
 
