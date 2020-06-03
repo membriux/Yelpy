@@ -9,6 +9,7 @@
 import UIKit
 import AlamofireImage
 import Lottie
+import SkeletonView
 
 class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
@@ -29,27 +30,33 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
     // ––––– TODO: Add searchController configurations
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //Start Animation
+        view.isSkeletonable = true
+// --- Start Food Animation
         
         /// Load from a specific bundle/
         animationView = .init(name: "4762-food-carousel")
+        // Set the size to the frame
         animationView!.frame = view.bounds
+        //fit the
         animationView!.contentMode = .scaleAspectFit
+        view.addSubview(animationView!)
+       
         
         // 4. Set animation loop mode
         
         animationView!.loopMode = .loop
         
-        // 5. Adjust animation speed
+        // Animation speed - Larger number = faster
         
         animationView!.animationSpeed = 5
         
-        view.addSubview(animationView!)
-        
-        // 6. Play animation
+        //  Play animation
         
         animationView!.play()
+ // Start Skeliton
+        
+        view.showAnimatedGradientSkeleton()
+        
         
         // Table View
         tableView.delegate = self
@@ -74,9 +81,13 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
             print("reload")
             self.restaurantsArray = restaurants
             self.filteredRestaurants = restaurants
+// ----- Stop Animation
             self.animationView?.stop()
+// ------ Change the subview to last and remove the current subview
             self.view.subviews.last?.removeFromSuperview()
-
+           
+            self.view.hideSkeleton()
+            
             self.tableView.reloadData()
             
         }
@@ -87,8 +98,11 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
 
 // ––––– TODO: Pass restaurant to details view controller through segue
 // ––––– TableView Functionality –––––
-extension RestaurantsViewController {
+extension RestaurantsViewController: SkeletonTableViewDataSource {
     
+   func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
+       return "Cell"
+   }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredRestaurants.count
