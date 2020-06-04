@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		70B21A6D2487796D00E1BAB5 /* 4762-food-carousel.json in Resources */ = {isa = PBXBuildFile; fileRef = 70B21A6C2487796D00E1BAB5 /* 4762-food-carousel.json */; };
+		70F6369B24898E8000038EC3 /* FileSubviewsSkeletonables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F6369A24898E8000038EC3 /* FileSubviewsSkeletonables.swift */; };
 		BB30BD2B247E46FE00C383BB /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30BD2A247E46FE00C383BB /* RestaurantDetailViewController.swift */; };
 		BB30BD30247E48E800C383BB /* YelpStars.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB30BD2F247E48E800C383BB /* YelpStars.swift */; };
 		BB47B3AA247739640029FFF6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47B3A9247739640029FFF6 /* API.swift */; };
@@ -28,6 +29,7 @@
 		4F45387EF0BCD4FD0EAD369F /* Pods_Yelpy.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yelpy.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65F962A73D0A55B6E930DC45 /* Pods-Yelpy.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yelpy.release.xcconfig"; path = "Target Support Files/Pods-Yelpy/Pods-Yelpy.release.xcconfig"; sourceTree = "<group>"; };
 		70B21A6C2487796D00E1BAB5 /* 4762-food-carousel.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "4762-food-carousel.json"; sourceTree = "<group>"; };
+		70F6369A24898E8000038EC3 /* FileSubviewsSkeletonables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSubviewsSkeletonables.swift; sourceTree = "<group>"; };
 		BB30BD2A247E46FE00C383BB /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		BB30BD2F247E48E800C383BB /* YelpStars.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YelpStars.swift; sourceTree = "<group>"; };
 		BB47B3A9247739640029FFF6 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				BB30BD2F247E48E800C383BB /* YelpStars.swift */,
+				70F6369A24898E8000038EC3 /* FileSubviewsSkeletonables.swift */,
 			);
 			path = Extra;
 			sourceTree = "<group>";
@@ -280,6 +283,7 @@
 				BB47B3B5247753B80029FFF6 /* RestaurantCell.swift in Sources */,
 				BB30BD30247E48E800C383BB /* YelpStars.swift in Sources */,
 				BB47B3B2247742F70029FFF6 /* Restaurant.swift in Sources */,
+				70F6369B24898E8000038EC3 /* FileSubviewsSkeletonables.swift in Sources */,
 				BBEBF110247738A50044AFE0 /* RestaurantsViewController.swift in Sources */,
 				BB47B3AA247739640029FFF6 /* API.swift in Sources */,
 				BBEBF10C247738A50044AFE0 /* AppDelegate.swift in Sources */,

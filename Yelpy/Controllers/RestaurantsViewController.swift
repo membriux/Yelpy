@@ -20,22 +20,25 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
     // ––––– TODO: change array to –> [Restaurant]
     var restaurantsArray: [Restaurant] = []
     
+    
     // ––––– TODO: Add Search Bar Outlet + Variable for filtered Results
     @IBOutlet weak var searchBar: UISearchBar!
     var filteredRestaurants: [Restaurant] = []
     
     // creating an animation view
     private var animationView: AnimationView?
-    
+    var refresh = true
     // ––––– TODO: Add searchController configurations
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.isSkeletonable = true
+    
+       
 // --- Start Food Animation
         
         /// Load from a specific bundle/
         animationView = .init(name: "4762-food-carousel")
         // Set the size to the frame
+//TODO:
         animationView!.frame = view.bounds
         //fit the
         animationView!.contentMode = .scaleAspectFit
@@ -54,20 +57,22 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
         
         animationView!.play()
  // Start Skeliton
-        
-        view.showAnimatedGradientSkeleton()
+        view.isSkeletonable = true
+       // view.showAnimatedGradientSkeleton()
         
         
         // Table View
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.visibleCells.forEach { $0.showSkeleton() }
         
         // Search Bar delegate
         searchBar.delegate = self
     
-        
+    
         // Get Data from API
         getAPIData()
+        
         
     }
     
@@ -81,6 +86,8 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
             print("reload")
             self.restaurantsArray = restaurants
             self.filteredRestaurants = restaurants
+            
+            
 // ----- Stop Animation
             self.animationView?.stop()
 // ------ Change the subview to last and remove the current subview
@@ -89,7 +96,7 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
             self.view.hideSkeleton()
             
             self.tableView.reloadData()
-            
+            //self.refresh = false
         }
     }
 
@@ -101,7 +108,7 @@ class RestaurantsViewController: UIViewController, UITableViewDelegate, UITableV
 extension RestaurantsViewController: SkeletonTableViewDataSource {
     
    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-       return "Cell"
+       return "RestaurantCell"
    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -112,6 +119,13 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create Restaurant Cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
+        if self.refresh {
+            cell.showAnimatedSkeleton()
+            
+        }
+        else {
+            cell.hideSkeleton()
+        }
         
         // Set cell's restaurant
         cell.r = filteredRestaurants[indexPath.row]
