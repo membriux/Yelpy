@@ -80,7 +80,9 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
         
         animationView = .init(name: "4762-food-carousel")
         // Set the size to the frame
-        animationView!.frame = view.bounds
+        //animationView!.frame = view.bounds
+        animationView!.frame = CGRect(x: view.frame.width / 3 , y: 0, width: 100, height: 100)
+
         // fit the
         animationView!.contentMode = .scaleAspectFit
         view.addSubview(animationView!)
