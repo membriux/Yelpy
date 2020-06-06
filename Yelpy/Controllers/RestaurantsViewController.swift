@@ -24,6 +24,9 @@ class RestaurantsViewController: UIViewController {
     var animationView: AnimationView?
     var refresh = true
     
+    // –––––  Lab 4: Refresh Control
+    let yelpRefresh = UIRefreshControl()
+    
 
     // ––––– Lab 4 TODO: Start animations
     override func viewDidLoad() {
@@ -46,11 +49,15 @@ class RestaurantsViewController: UIViewController {
         // Get Data from API
         getAPIData()
         
+        // –––––  Lab 4: refresh
+        yelpRefresh.addTarget(self, action: #selector(getAPIData), for: .valueChanged)
+        tableView.refreshControl = yelpRefresh
     }
     
     
     // ––––– Lab 4 TODO: Call animation functions to stop
-    func getAPIData() {
+    @objc func getAPIData() {
+       
         API.getRestaurants() { (restaurants) in
             guard let restaurants = restaurants else {
                 return
@@ -62,6 +69,8 @@ class RestaurantsViewController: UIViewController {
             self.tableView.reloadData()
             
             Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.stopAnimations), userInfo: nil, repeats: false)
+            // –––––  Lab 4: stop refresh
+            self.yelpRefresh.endRefreshing()
             
         }
     }
