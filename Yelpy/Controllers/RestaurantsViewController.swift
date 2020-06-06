@@ -40,8 +40,6 @@ class RestaurantsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        
         // Search Bar delegate
         searchBar.delegate = self
     
@@ -62,7 +60,6 @@ class RestaurantsViewController: UIViewController {
             guard let restaurants = restaurants else {
                 return
             }
-            print("reload")
             
             self.restaurantsArray = restaurants
             self.filteredRestaurants = restaurants
