@@ -16,6 +16,7 @@ class RestaurantsViewController: UIViewController {
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     var restaurantsArray: [Restaurant] = []
+    var cellIndexes: [Int] = []
     
     @IBOutlet weak var searchBar: UISearchBar!
     var filteredRestaurants: [Restaurant] = []
@@ -31,6 +32,8 @@ class RestaurantsViewController: UIViewController {
     // ––––– Lab 4 TODO: Start animations
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     
         // TODO: Start animations
         startAnimations()
@@ -124,6 +127,8 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
 // ––––– TableView Functionality –––––
 extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource {
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return filteredRestaurants.count
     }
@@ -135,15 +140,13 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
         // Set cell's restaurant
         cell.r = filteredRestaurants[indexPath.row]
         
-        if self.refresh {
-            cell.showAnimatedSkeleton()
-            
-        } else {
+        cell.showAnimatedSkeleton()
+        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
             cell.hideSkeleton()
         }
-        
         return cell
     }
+    
     
     // ––––– TODO: Send restaurant object to DetailViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
