@@ -16,28 +16,21 @@ class RestaurantsViewController: UIViewController {
     // Outlets
     @IBOutlet weak var tableView: UITableView!
     var restaurantsArray: [Restaurant] = []
-    var cellIndexes: [Int] = []
     
     @IBOutlet weak var searchBar: UISearchBar!
     var filteredRestaurants: [Restaurant] = []
     
-    // –––––  Lab 4: create an animation view
+    // Variable inits
     var animationView: AnimationView?
     var refresh = true
     
-    // –––––  Lab 4: Refresh Control
     let yelpRefresh = UIRefreshControl()
     
 
-    // ––––– Lab 4 TODO: Start animations
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-    
-        // TODO: Start animations
         startAnimations()
-        
         // Table View
         tableView.visibleCells.forEach { $0.showSkeleton() }
         tableView.delegate = self
@@ -50,13 +43,11 @@ class RestaurantsViewController: UIViewController {
         // Get Data from API
         getAPIData()
         
-        // –––––  Lab 4: refresh
         yelpRefresh.addTarget(self, action: #selector(getAPIData), for: .valueChanged)
         tableView.refreshControl = yelpRefresh
     }
     
     
-    // ––––– Lab 4 TODO: Call animation functions to stop
     @objc func getAPIData() {
        
         API.getRestaurants() { (restaurants) in
@@ -69,7 +60,7 @@ class RestaurantsViewController: UIViewController {
             self.tableView.reloadData()
             
             Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.stopAnimations), userInfo: nil, repeats: false)
-            // –––––  Lab 4: stop refresh
+        
             self.yelpRefresh.endRefreshing()
             
         }
@@ -79,10 +70,9 @@ class RestaurantsViewController: UIViewController {
 
 }
 
-// ––––– Lab 4 TODO: Add SkeletonTableViewDataSource + protocol stubs
 extension RestaurantsViewController: SkeletonTableViewDataSource {
     
-    // –––– Lab 4 TODO: Complete startAnimations Function
+    
     func startAnimations() {
         // Start Skeleton
         view.isSkeletonable = true
@@ -107,7 +97,7 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
         
     }
     
-    // ––––– Lab 4 TODO: Complete stopAnimations function
+
     @objc func stopAnimations() {
         // ----- Stop Animation
         animationView?.stop()
@@ -117,7 +107,7 @@ extension RestaurantsViewController: SkeletonTableViewDataSource {
         refresh = false
     }
     
-    // ––––– Lab 4 TODO: Add collectionSkeletonView protocol stub
+
     func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
         return "RestaurantCell"
     }
@@ -133,17 +123,22 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
         return filteredRestaurants.count
     }
     
-    // ––––– TODO: Configure cell to use [Movie] array instead of [[String:Any]] and Filtered Array
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create Restaurant Cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
         // Set cell's restaurant
         cell.r = filteredRestaurants[indexPath.row]
         
-        cell.showAnimatedSkeleton()
-        Timer.scheduledTimer(withTimeInterval: 0.3, repeats: false) { (timer) in
+        // Initialize skeleton view every time cell gets initialized
+        cell.showSkeleton()
+        
+        // Stop animation after like .5 seconds
+        Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { (timer) in
+            cell.stopSkeletonAnimation()
             cell.hideSkeleton()
         }
+        
+        
         return cell
     }
     
@@ -162,9 +157,7 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
 }
 
 
-// ––––– TODO: Add protocol + Functionality for Searching
-// UISearchResultsUpdating informs the class of text changes
-// happening in the UISearchBar
+// ––––– UI SearchBar Functionality –––––
 extension RestaurantsViewController: UISearchBarDelegate {
     
     // Search bar functionality
