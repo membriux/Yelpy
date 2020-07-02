@@ -13,37 +13,45 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
+    
+    
+    // ––––– Lab 5 TODO: Create event listeners for user login + logout
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         
-        // ––––– Lab 5 TODO: USER LOGS OUT Listener
+    
+        // Add event listener for when user logs out
+        NotificationCenter.default.addObserver(forName: Notification.Name("login"), object: nil, queue: OperationQueue.main) { (Notification) in
+            print("Logout notification received")
+            // Load and show Login view controller
+            self.login()
+        }
+        
         // Add event listener for when user logs out
         NotificationCenter.default.addObserver(forName: Notification.Name("didLogout"), object: nil, queue: OperationQueue.main) { (Notification) in
             print("Logout notification received")
             // Load and show Login view controller
             self.logOut()
         }
-    
-        NotificationCenter.default.addObserver(forName: Notification.Name("logIn"), object: nil, queue: OperationQueue.main) { (Notification) in
-            print("Logout notification received")
-            // Load and show Login view controller
-        }
         
-        
+        // Add User persistance across app restarts
         if PFUser.current() != nil {
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            // view controller currently being set in Storyboard as default will be overridden
-            window?.rootViewController = storyboard.instantiateViewController(withIdentifier: VC.tabBar)
+            login()
         }
 
-
-        
         guard let _ = (scene as? UIWindowScene) else { return }
     }
     
+    
+    // ––––– Lab 5 TODO: LOGIN USER
+    func login() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        // view controller currently being set in Storyboard as default will be overridden
+        window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TabBar")
+    }
     
     // ––––– Lab 5 TODO: LOGOUT USER
     func logOut() {
@@ -59,10 +67,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
             
         })
-        
-
-        
     }
+    
+    
     
 
     func sceneDidDisconnect(_ scene: UIScene) {

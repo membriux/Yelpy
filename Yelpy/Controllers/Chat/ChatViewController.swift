@@ -20,10 +20,10 @@ class ChatViewController: UIViewController {
     
     
     
-    // TODO: CREATE ARRAY FOR MESSAGES
+    // ––––– LAB 5 TODO: CREATE ARRAY FOR MESSAGES
     var messages: [PFObject] = []
     
-    // TODO: CREATE CHAT MESSAGE OBJECT
+    // ––––– LAB 5 TODO: CREATE CHAT MESSAGE OBJECT
     let chatMessage = PFObject(className: "Message")
 
     
@@ -49,7 +49,7 @@ class ChatViewController: UIViewController {
     // ––––– Lab 5 TODO: ADD FUNCTIONALITY TO retrieveChatMessages()
     @objc func retrieveChatMessages() {
         // ParseClass.TrainingFall2020 is a string from our Constants.swift file
-        let query = PFQuery(className: ParseClass.TrainingFall2020) // className = group chat name, obtained from Constants.swift
+        let query = PFQuery(className: "TrainingFall2020") // className = group chat name, obtained from Constants.swift
         query.addDescendingOrder("createdAt")
         query.limit = 20
         query.includeKey("user")
@@ -69,7 +69,7 @@ class ChatViewController: UIViewController {
     @IBAction func onSend(_ sender: Any) {
         // ParseClass.TrainingFall2020 is a string from our Constants.swift file
         if messageTextField.text!.isEmpty == false {
-            let chatMessage = PFObject(className: ParseClass.TrainingFall2020) // className = group chat, Obtained from Constants.swift
+            let chatMessage = PFObject(className: "TrainingFall2020") // className = group chat, Obtained from Constants.swift
             chatMessage["text"] = messageTextField.text ?? ""
             chatMessage["user"] = PFUser.current()
             self.messageTextField.text = "" // reset message

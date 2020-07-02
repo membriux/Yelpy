@@ -14,7 +14,6 @@
 		BB364E7A24AD5F64003EA679 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB364E7924AD5F64003EA679 /* LoginViewController.swift */; };
 		BB364E7C24AD6883003EA679 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB364E7B24AD6883003EA679 /* ChatViewController.swift */; };
 		BB364E7E24AD68C2003EA679 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB364E7D24AD68C2003EA679 /* ChatCell.swift */; };
-		BB364E8024AD7245003EA679 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB364E7F24AD7245003EA679 /* Constants.swift */; };
 		BB47B3AA247739640029FFF6 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47B3A9247739640029FFF6 /* API.swift */; };
 		BB47B3AF2477426A0029FFF6 /* exampleAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = BB47B3AE2477426A0029FFF6 /* exampleAPI.json */; };
 		BB47B3B2247742F70029FFF6 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB47B3B1247742F70029FFF6 /* Restaurant.swift */; };
@@ -39,7 +38,6 @@
 		BB364E7924AD5F64003EA679 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BB364E7B24AD6883003EA679 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		BB364E7D24AD68C2003EA679 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
-		BB364E7F24AD7245003EA679 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BB47B3A9247739640029FFF6 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		BB47B3AE2477426A0029FFF6 /* exampleAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = exampleAPI.json; sourceTree = "<group>"; };
 		BB47B3B1247742F70029FFF6 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
@@ -88,9 +86,26 @@
 			children = (
 				BB30BD2F247E48E800C383BB /* YelpStars.swift */,
 				70F6369A24898E8000038EC3 /* FileSubviewsSkeletonables.swift */,
-				BB364E7F24AD7245003EA679 /* Constants.swift */,
 			);
 			path = Extra;
+			sourceTree = "<group>";
+		};
+		BB364E8524AD999A003EA679 /* MainFeed */ = {
+			isa = PBXGroup;
+			children = (
+				BBEBF10F247738A50044AFE0 /* RestaurantsViewController.swift */,
+				BB30BD2A247E46FE00C383BB /* RestaurantDetailViewController.swift */,
+			);
+			path = MainFeed;
+			sourceTree = "<group>";
+		};
+		BB364E8624AD99A9003EA679 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				BB364E7924AD5F64003EA679 /* LoginViewController.swift */,
+				BB364E7B24AD6883003EA679 /* ChatViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		BB47B3AB247739720029FFF6 /* Network */ = {
@@ -104,10 +119,8 @@
 		BB47B3AC247739890029FFF6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				BBEBF10F247738A50044AFE0 /* RestaurantsViewController.swift */,
-				BB30BD2A247E46FE00C383BB /* RestaurantDetailViewController.swift */,
-				BB364E7924AD5F64003EA679 /* LoginViewController.swift */,
-				BB364E7B24AD6883003EA679 /* ChatViewController.swift */,
+				BB364E8624AD99A9003EA679 /* Chat */,
+				BB364E8524AD999A003EA679 /* MainFeed */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,7 +312,6 @@
 				70F6369B24898E8000038EC3 /* FileSubviewsSkeletonables.swift in Sources */,
 				BB364E7E24AD68C2003EA679 /* ChatCell.swift in Sources */,
 				BBEBF110247738A50044AFE0 /* RestaurantsViewController.swift in Sources */,
-				BB364E8024AD7245003EA679 /* Constants.swift in Sources */,
 				BB47B3AA247739640029FFF6 /* API.swift in Sources */,
 				BBEBF10C247738A50044AFE0 /* AppDelegate.swift in Sources */,
 				BBEBF10E247738A50044AFE0 /* SceneDelegate.swift in Sources */,

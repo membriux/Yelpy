@@ -346,11 +346,9 @@
                     <connections>
                         <outlet property="messageTextField" destination="08A-iN-k67" id="TFc-G8-21T"/>
                         <outlet property="tableView" destination="7Lm-ay-BVZ" id="1Gq-IM-vuh"/>
-                        <segue destination="Hlg-F5-b4G" kind="unwind" identifier="Unwind" unwindAction="unwind:" id="cyT-vG-MDP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cbU-sI-c6M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="Hlg-F5-b4G" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3771.0144927536235" y="776.78571428571422"/>
         </scene>

@@ -16,29 +16,16 @@ class LoginViewController: UIViewController {
     /*------ Outlets ------*/
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
-    
-    let storybd = UIStoryboard(name: "Main", bundle: nil)
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        // ––––– LAB 5 TODO: CHECK IF USER IS ALREADY LOGGED IN
-        if PFUser.current() != nil {
-            print("ALREADY LOGGED IN AS: \(PFUser.current()!.username!)\n")
-
-            self.performSegue(withIdentifier: Segues.authenticated, sender: nil)
-            
-        }
     }
 
 
     /*------ SIGN UP AND LOG IN FUNCTIONALITY  ------*/
     
-    // TODO: SIGN UP FUNCTIONALITY
+    // ––––– LAB 5 TODO: SIGN UP FUNCTIONALITY
     @IBAction func onSignUp(_ sender: Any) {
         // Sign up user
         // Check text field inputs
@@ -57,7 +44,7 @@ class LoginViewController: UIViewController {
                     self.displaySignupError(error: error)
                 } else {
                     print("User \(newUser.username!) Registered successfully")
-                    self.performSegue(withIdentifier: Segues.authenticated, sender: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
                     
                 }
             }
@@ -66,7 +53,7 @@ class LoginViewController: UIViewController {
     }
     
     
-    // TODO: LOG IN FUNCTIONALITY
+    // ––––– LAB 5 TODO: LOGIN FUNCTIONALITY
     @IBAction func onLogin(_ sender: Any) {
         // Login user
     
@@ -82,7 +69,7 @@ class LoginViewController: UIViewController {
                 } else {
                     print("User \(username) logged in successfully")
                     // display view controller that needs to shown after successful login
-                    self.performSegue(withIdentifier: Segues.authenticated, sender: nil)
+                    NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
 
                     
                 }
@@ -91,15 +78,11 @@ class LoginViewController: UIViewController {
         
     }
     
-
     
-    // ––––– Lab 5 TODO: Unwind Segue when logging out
-    @IBAction func unwind(_ seg: UIStoryboardSegue) {
-        
-    }
     
     
     /*------ Handle text field inputs  ------*/
+    
     func usernameAndPasswordNotEmpty() -> Bool {
         // Check text field inputs
         if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
@@ -109,8 +92,6 @@ class LoginViewController: UIViewController {
             return true
         }
     }
-    
-    
     
     /*------ Alert Controllers ------*/
     // Text fields are empty alert controller
@@ -124,7 +105,6 @@ class LoginViewController: UIViewController {
         alertController.addAction(OKAction)
         present(alertController, animated: true)
     }
-    
     
     // Login error alert controller
     func displayLoginError(error: Error) {
