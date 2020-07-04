@@ -29,7 +29,7 @@ class LoginViewController: UIViewController {
     @IBAction func onSignUp(_ sender: Any) {
         // Sign up user
         // Check text field inputs
-        if usernameAndPasswordNotEmpty() {
+        if !usernameAndPasswordEmpty(){
             // initialize a user object
             let newUser = PFUser()
             
@@ -45,9 +45,11 @@ class LoginViewController: UIViewController {
                 } else {
                     print("User \(newUser.username!) Registered successfully")
                     NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
-                    
                 }
             }
+            
+        } else {
+            displayEmptyTextError()
         }
         
     }
@@ -58,7 +60,7 @@ class LoginViewController: UIViewController {
         // Login user
     
         // Check text field inputs
-        if usernameAndPasswordNotEmpty() {
+        if !usernameAndPasswordEmpty() {
             let username = usernameTextField.text ?? ""
             let password = passwordTextField.text ?? ""
             
@@ -70,11 +72,13 @@ class LoginViewController: UIViewController {
                     print("User \(username) logged in successfully")
                     // display view controller that needs to shown after successful login
                     NotificationCenter.default.post(name: NSNotification.Name("login"), object: nil)
-
-                    
                 }
             }
+            
+        } else {
+            displayEmptyTextError()
         }
+        
         
     }
     
@@ -82,20 +86,14 @@ class LoginViewController: UIViewController {
     
     
     /*------ Handle text field inputs  ------*/
-    
-    func usernameAndPasswordNotEmpty() -> Bool {
-        // Check text field inputs
-        if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            displayError()
-            return false
-        } else {
-            return true
-        }
+    // Check text field inputs
+    func usernameAndPasswordEmpty() -> Bool {
+        return usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty
     }
     
     /*------ Alert Controllers ------*/
     // Text fields are empty alert controller
-    func displayError() {
+    func displayEmptyTextError() {
         let title = "Error"
         let message = "Username and password field cannot be empty"
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
