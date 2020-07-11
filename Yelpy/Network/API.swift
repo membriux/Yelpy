@@ -37,7 +37,7 @@ struct API {
                 
                 // ––––– TODO: Get data from API and return it using completion
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                
+                                
                 let restDictionaries = dataDictionary["businesses"] as! [[String: Any]]
                 
                 let restaurants = restDictionaries.map({ Restaurant.init(dict: $0) })

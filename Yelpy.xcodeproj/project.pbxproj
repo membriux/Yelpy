@@ -24,6 +24,8 @@
 		BBEBF110247738A50044AFE0 /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEBF10F247738A50044AFE0 /* RestaurantsViewController.swift */; };
 		BBEBF115247738A50044AFE0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBEBF114247738A50044AFE0 /* Assets.xcassets */; };
 		BBEBF118247738A50044AFE0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBEBF116247738A50044AFE0 /* LaunchScreen.storyboard */; };
+		CE517AC524B6DD4A00268657 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE517AC424B6DD4A00268657 /* MapKit.framework */; };
+		CE517AC724B6F65200268657 /* PostImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE517AC624B6F65200268657 /* PostImageViewController.swift */; };
 		DEB0D3CBF2C6E48DC3500274 /* Pods_Yelpy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F45387EF0BCD4FD0EAD369F /* Pods_Yelpy.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +52,8 @@
 		BBEBF114247738A50044AFE0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBEBF117247738A50044AFE0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBEBF119247738A50044AFE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE517AC424B6DD4A00268657 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		CE517AC624B6F65200268657 /* PostImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE517AC524B6DD4A00268657 /* MapKit.framework in Frameworks */,
 				DEB0D3CBF2C6E48DC3500274 /* Pods_Yelpy.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +81,7 @@
 		7D8BA013843B8AF0BF0FE308 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE517AC424B6DD4A00268657 /* MapKit.framework */,
 				4F45387EF0BCD4FD0EAD369F /* Pods_Yelpy.framework */,
 			);
 			name = Frameworks;
@@ -95,6 +101,7 @@
 			children = (
 				BBEBF10F247738A50044AFE0 /* RestaurantsViewController.swift */,
 				BB30BD2A247E46FE00C383BB /* RestaurantDetailViewController.swift */,
+				CE517AC624B6F65200268657 /* PostImageViewController.swift */,
 			);
 			path = MainFeed;
 			sourceTree = "<group>";
@@ -316,6 +323,7 @@
 				BBEBF10C247738A50044AFE0 /* AppDelegate.swift in Sources */,
 				BBEBF10E247738A50044AFE0 /* SceneDelegate.swift in Sources */,
 				BB364E7A24AD5F64003EA679 /* LoginViewController.swift in Sources */,
+				CE517AC724B6F65200268657 /* PostImageViewController.swift in Sources */,
 				BB30BD2B247E46FE00C383BB /* RestaurantDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -463,6 +471,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Yelpy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,6 +490,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Yelpy/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -60,5 +60,9 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Need access to post photo for resaturants</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Need access to photo library to add photos for restaurants</string>
 </dict>
 </plist>
