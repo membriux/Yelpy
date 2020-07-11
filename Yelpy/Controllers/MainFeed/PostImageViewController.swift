@@ -21,6 +21,7 @@ class PostImageViewController: UIViewController, UIImagePickerControllerDelegate
         super.viewDidLoad()
 
         createImagePicker()
+        navigationController?.navigationBar.isHidden = true
         
     }
     
@@ -55,9 +56,10 @@ class PostImageViewController: UIViewController, UIImagePickerControllerDelegate
     
     
     @IBAction func onFinishPosting(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwindToDetail", sender: self)
         delegate.imageSelected(controller: self, image: self.selectedImageView.image!)
     }
+    
     
     
 

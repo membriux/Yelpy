@@ -299,9 +299,11 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="selectedImageView" destination="AHs-ue-E21" id="Gfv-Bc-nF9"/>
+                        <segue destination="Pf0-ug-Mvh" kind="unwind" identifier="unwindToDetail" unwindAction="unwind:" id="onY-hf-lZr"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eYi-QB-xka" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Pf0-ug-Mvh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="5318.840579710145" y="123.88392857142857"/>
         </scene>
