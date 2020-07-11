@@ -33,6 +33,13 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         // step 10) is running the app
         mapView.delegate = self
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toPostImageVC" {
+            let postImageVC = segue.destination as! PostImageViewController
+            postImageVC.delegate = self
+        }
+    }
 
     
     // ––––– TODO: Configure outlets :)

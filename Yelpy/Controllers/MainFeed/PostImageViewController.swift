@@ -48,7 +48,6 @@ class PostImageViewController: UIViewController, UIImagePickerControllerDelegate
         
 
         self.selectedImageView.image = originalImage
-        delegate.imageSelected(controller: self, image: originalImage)
         
         print("image dismissed")
         dismiss(animated: true, completion: nil)
@@ -57,6 +56,7 @@ class PostImageViewController: UIViewController, UIImagePickerControllerDelegate
     
     @IBAction func onFinishPosting(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+        delegate.imageSelected(controller: self, image: self.selectedImageView.image!)
     }
     
     
