@@ -47,6 +47,7 @@ Below are the following features that are capable for the app:
   - MapKit Integration
   - Image Upload capability
 - **Mark Falcone** - [markFalcone](https://github.com/markFalcone)
+  - AutoLayout
   - Lottie Animation Integration
   - SkeletonView Integration
   - Messaging/Chat feature
