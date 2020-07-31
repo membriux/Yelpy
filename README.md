@@ -8,6 +8,7 @@ Below are the following features that are capable for the app:
 
 - Load data from Yelp API
 - Animations using [Lottie](https://airbnb.io/lottie/#/) and [SkeletonView](https://github.com/Juanpe/SkeletonView)
+
 ![Main Feed | 250](https://imgur.com/EJGYjhl.gif)
 
 - Search businesses
@@ -15,12 +16,12 @@ Below are the following features that are capable for the app:
 - Messaging/Chatting capabilities
   - Save messages using [Parse Server](https://parseplatform.org/)
 
-![Login to Main Feed + Chat](https://imgur.com/XIdD7Bb.gif)
+![Login to Main Feed + Chat | 250](https://imgur.com/XIdD7Bb.gif)
 
 - Show business in Map
 - Upload image to Map Pin
 
-![Map](https://i.imgur.com/Npz2m1A.gif)
+![Map | 250](https://i.imgur.com/Npz2m1A.gif)
 
 ## Built With
 
