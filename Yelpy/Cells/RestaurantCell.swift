@@ -31,7 +31,7 @@ class RestaurantCell: UITableViewCell {
             
             // set images
             starsImage.image = Stars.dict[r.rating]!
-            restaurantImage.af.setImage(withURL: r.imageURL!)
+            restaurantImage.af_setImage(withURL: r.imageURL!)
             restaurantImage.layer.cornerRadius = 10
             restaurantImage.clipsToBounds = true
             

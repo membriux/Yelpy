@@ -47,7 +47,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
         nameLabel.text = r.name
         reviewsLabel.text = String(r.reviews)
         starImage.image = Stars.dict[r.rating]!
-        headerImage.af.setImage(withURL: r.imageURL!)
+        headerImage.af_setImage(withURL: r.imageURL!)
         
         // Extra: Add tint opacity to image to make text stand out
         let tintView = UIView()
