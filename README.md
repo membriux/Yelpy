@@ -16,7 +16,7 @@ Below are the following features that are capable for the app:
 - Messaging/Chatting capabilities
   - Save messages using [Parse Server](https://parseplatform.org/)
 
-![Login to Main Feed + Chat | 250](https://imgur.com/XIdD7Bb.gif)
+![Login to Main Feed + Chat | 250](https://i.imgur.com/XIdD7Bb.gif)
 
 - Show business in Map
 - Upload image to Map Pin
