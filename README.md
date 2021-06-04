@@ -1,3 +1,4 @@
+
 # Yelpy
 
 Clone of Yelp app that we use to teach CodePath's iOS Curriculum utilized by more than 300+ students every year.
@@ -16,12 +17,12 @@ Below are the following features that are capable for the app:
 - Messaging/Chatting capabilities
   - Save messages using [Parse Server](https://parseplatform.org/)
 
-![Login to Main Feed + Chat | 250](https://i.imgur.com/XIdD7Bb.gif)
+![Login + Chat](https://user-images.githubusercontent.com/20372706/120849901-93457380-c52b-11eb-98d5-b28257b436bd.gif)
 
 - Show business in Map
 - Upload image to Map Pin
 
-![Map | 250](https://i.imgur.com/Npz2m1A.gif)
+![Map Feature | 250](https://i.imgur.com/Npz2m1A.gif)
 
 ## Built With
 
