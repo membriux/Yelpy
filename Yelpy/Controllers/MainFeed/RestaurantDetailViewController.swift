@@ -46,7 +46,7 @@ class RestaurantDetailViewController: UIViewController, MKMapViewDelegate, PostI
     func configureOutlets() {
         nameLabel.text = r.name
         reviewsLabel.text = String(r.reviews)
-        starImage.image = Stars.dict[r.rating]!
+        starImage.image = Stars.getImage(fileName: String(r.rating))
         headerImage.af_setImage(withURL: r.imageURL!)
         
         // Extra: Add tint opacity to image to make text stand out
