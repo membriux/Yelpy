@@ -1,4 +1,6 @@
 
+##### Tags: `ios` `yelp` `clone` `learn-ios`
+
 # Yelpy
 
 Clone of Yelp app that we use to teach CodePath's iOS Curriculum utilized by more than 300+ students every year.
