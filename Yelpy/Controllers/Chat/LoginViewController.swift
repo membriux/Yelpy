@@ -82,15 +82,9 @@ class LoginViewController: UIViewController {
     
     
     /*------ Handle text field inputs  ------*/
-    
     func usernameAndPasswordNotEmpty() -> Bool {
         // Check text field inputs
-        if usernameTextField.text!.isEmpty || passwordTextField.text!.isEmpty {
-            displayError()
-            return false
-        } else {
-            return true
-        }
+        return usernameTextField.text!.isEmpty && passwordTextField.text!.isEmpty
     }
     
     /*------ Alert Controllers ------*/
