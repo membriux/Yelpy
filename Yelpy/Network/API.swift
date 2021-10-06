@@ -38,14 +38,14 @@ struct API {
                 // ––––– TODO: Get data from API and return it using completion
                 let dataDictionary = try! JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
                 
-                let restDict = dataDictionary["businesses"] as! [[String: Any]]
+                let restDictionaries = dataDictionary["businesses"] as! [[String: Any]]
                 
-                let restaurants = restDict.map({ Restaurant.init(dict: $0) })
+                let restaurants = restDictionaries.map({ Restaurant.init(dict: $0) })
                 
                 // Using For Loop
 //                var restaurants: [Restaurant] = []
-//                for dictionary in dataDictionary {
-//                    let restaurant = Restaurant.init(dict: dictionary as! [String : Any])
+//                for dictionary in restDictionaries {
+//                    let restaurant = Restaurant.init(dict: dictionary)
 //                    restaurants.append(restaurant)
 //                }
 

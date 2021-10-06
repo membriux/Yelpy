@@ -32,5 +32,4 @@ struct Stars {
     static let fourHalf = UIImage(named: "regular_4_half")
     static let five = UIImage(named: "regular_5")
     
-        
 }

@@ -221,23 +221,14 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Future: Add Map that takes you to MapViewController Similar to Yelp " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPr-3m-VhD">
-                                <rect key="frame" x="8" y="335" width="398" height="41"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="1mx-NY-0oQ" firstAttribute="bottom" secondItem="0Fr-eq-Oka" secondAttribute="bottom" constant="-16" id="6aj-ih-Iu4"/>
-                            <constraint firstItem="bPr-3m-VhD" firstAttribute="top" secondItem="0Fr-eq-Oka" secondAttribute="bottom" constant="32" id="Bzn-xl-lOj"/>
-                            <constraint firstItem="SdW-sT-Vfc" firstAttribute="trailing" secondItem="bPr-3m-VhD" secondAttribute="trailing" constant="8" id="F0W-Xv-r7f"/>
                             <constraint firstItem="0Fr-eq-Oka" firstAttribute="height" secondItem="x7K-Ep-MhU" secondAttribute="height" multiplier="36/100" id="Mo2-0z-gBd"/>
                             <constraint firstItem="0Fr-eq-Oka" firstAttribute="top" secondItem="SdW-sT-Vfc" secondAttribute="top" id="PTG-8V-1Lk"/>
                             <constraint firstItem="0Fr-eq-Oka" firstAttribute="trailing" secondItem="SdW-sT-Vfc" secondAttribute="trailing" id="QAs-ck-slP"/>
                             <constraint firstItem="0Fr-eq-Oka" firstAttribute="width" secondItem="x7K-Ep-MhU" secondAttribute="width" id="Tr7-bV-NRr"/>
-                            <constraint firstItem="bPr-3m-VhD" firstAttribute="leading" secondItem="SdW-sT-Vfc" secondAttribute="leading" constant="8" id="YJm-DN-mPj"/>
                             <constraint firstItem="1mx-NY-0oQ" firstAttribute="leading" secondItem="SdW-sT-Vfc" secondAttribute="leading" constant="16" id="abH-Tz-GKu"/>
                             <constraint firstItem="SdW-sT-Vfc" firstAttribute="trailing" secondItem="1mx-NY-0oQ" secondAttribute="trailing" constant="16" id="wjI-Z4-PBq"/>
                             <constraint firstItem="0Fr-eq-Oka" firstAttribute="leading" secondItem="SdW-sT-Vfc" secondAttribute="leading" id="y1T-u9-IDu"/>
