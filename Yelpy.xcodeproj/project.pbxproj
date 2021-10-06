@@ -78,6 +78,7 @@
 		BB30BD2C247E48C400C383BB /* Extra */ = {
 			isa = PBXGroup;
 			children = (
+				70B21A6C2487796D00E1BAB5 /* 4762-food-carousel.json */,
 				BB30BD2F247E48E800C383BB /* YelpStars.swift */,
 				70F6369A24898E8000038EC3 /* FileSubviewsSkeletonables.swift */,
 			);
@@ -151,7 +152,6 @@
 				BBEBF10B247738A50044AFE0 /* AppDelegate.swift */,
 				BBEBF10D247738A50044AFE0 /* SceneDelegate.swift */,
 				BB47B3AE2477426A0029FFF6 /* exampleAPI.json */,
-				70B21A6C2487796D00E1BAB5 /* 4762-food-carousel.json */,
 				BB47B3B32477539A0029FFF6 /* Cells */,
 				BB47B3B0247742D70029FFF6 /* Model */,
 				BB47B3AC247739890029FFF6 /* Controllers */,

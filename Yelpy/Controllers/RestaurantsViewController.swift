@@ -12,115 +12,58 @@ import Lottie
 import SkeletonView
 
 class RestaurantsViewController: UIViewController {
-        
+    
     // Outlets
     @IBOutlet weak var tableView: UITableView!
-    var restaurantsArray: [Restaurant] = []
-    
     @IBOutlet weak var searchBar: UISearchBar!
+    // Initiliazers
+    var restaurantsArray: [Restaurant] = []
     var filteredRestaurants: [Restaurant] = []
     
     // –––––  Lab 4: create an animation view
-    var animationView: AnimationView?
-    var refresh = true
     
-    // –––––  Lab 4: Refresh Control
-    let yelpRefresh = UIRefreshControl()
     
-
-    // ––––– Lab 4 TODO: Start animations
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        // TODO: Start animations
-        startAnimations()
+        // ––––– Lab 4 TODO: Start animations
+        
         
         // Table View
-        tableView.visibleCells.forEach { $0.showSkeleton() }
         tableView.delegate = self
         tableView.dataSource = self
         
-        
-        
         // Search Bar delegate
         searchBar.delegate = self
-    
-    
+        
         // Get Data from API
         getAPIData()
         
-        // –––––  Lab 4: refresh
-        yelpRefresh.addTarget(self, action: #selector(getAPIData), for: .valueChanged)
-        tableView.refreshControl = yelpRefresh
+        // –––––  Lab 4: stop animations, you can add a timer to stop the animation
+        
     }
     
     
-    // ––––– Lab 4 TODO: Call animation functions to stop
     @objc func getAPIData() {
-       
         API.getRestaurants() { (restaurants) in
             guard let restaurants = restaurants else {
                 return
             }
-            print("reload")
-            
             self.restaurantsArray = restaurants
             self.filteredRestaurants = restaurants
             self.tableView.reloadData()
-            
-            Timer.scheduledTimer(timeInterval: 2.0, target: self, selector: #selector(self.stopAnimations), userInfo: nil, repeats: false)
-            // –––––  Lab 4: stop refresh
-            self.yelpRefresh.endRefreshing()
             
         }
     }
     
     
-
-}
-
-// ––––– Lab 4 TODO: Add SkeletonTableViewDataSource + protocol stubs
-extension RestaurantsViewController: SkeletonTableViewDataSource {
+    // ––––– Lab 4 TODO: Call animation functions to start
     
-    // –––– Lab 4 TODO: Complete startAnimations Function
-    func startAnimations() {
-        // Start Skeleton
-        view.isSkeletonable = true
-        
-        animationView = .init(name: "4762-food-carousel")
-        // Set the size to the frame
-        //animationView!.frame = view.bounds
-        animationView!.frame = CGRect(x: view.frame.width / 3 , y: 0, width: 100, height: 100)
-
-        // fit the
-        animationView!.contentMode = .scaleAspectFit
-        view.addSubview(animationView!)
-        
-        // 4. Set animation loop mode
-        animationView!.loopMode = .loop
-
-        // Animation speed - Larger number = faste
-        animationView!.animationSpeed = 5
-
-        //  Play animation
-        animationView!.play()
-        
-    }
     
-    // ––––– Lab 4 TODO: Complete stopAnimations function
-    @objc func stopAnimations() {
-        // ----- Stop Animation
-        animationView?.stop()
-        // ------ Change the subview to last and remove the current subview
-        view.subviews.last?.removeFromSuperview()
-        view.hideSkeleton()
-        refresh = false
-    }
+    // ––––– Lab 4 TODO: Call animation functions to stop
     
-    // ––––– Lab 4 TODO: Add collectionSkeletonView protocol stub
-    func collectionSkeletonView(_ skeletonView: UITableView, cellIdentifierForRowAt indexPath: IndexPath) -> ReusableCellIdentifier {
-        return "RestaurantCell"
-    }
+    
     
 }
 
@@ -131,24 +74,14 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
         return filteredRestaurants.count
     }
     
-    // ––––– TODO: Configure cell to use [Movie] array instead of [[String:Any]] and Filtered Array
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Create Restaurant Cell
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantCell") as! RestaurantCell
         // Set cell's restaurant
         cell.r = filteredRestaurants[indexPath.row]
-        
-        if self.refresh {
-            cell.showAnimatedSkeleton()
-            
-        } else {
-            cell.hideSkeleton()
-        }
-        
         return cell
     }
     
-    // ––––– TODO: Send restaurant object to DetailViewController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! UITableViewCell
         if let indexPath = tableView.indexPath(for: cell) {
@@ -161,17 +94,13 @@ extension RestaurantsViewController: UITableViewDelegate, UITableViewDataSource 
     
 }
 
-
-// ––––– TODO: Add protocol + Functionality for Searching
-// UISearchResultsUpdating informs the class of text changes
-// happening in the UISearchBar
 extension RestaurantsViewController: UISearchBarDelegate {
     
     // Search bar functionality
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText != "" {
             filteredRestaurants = restaurantsArray.filter { (r: Restaurant) -> Bool in
-              return r.name.lowercased().contains(searchText.lowercased())
+                return r.name.lowercased().contains(searchText.lowercased())
             }
         }
         else {
@@ -179,23 +108,21 @@ extension RestaurantsViewController: UISearchBarDelegate {
         }
         tableView.reloadData()
     }
-
+    
     
     // Show Cancel button when typing
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-       self.searchBar.showsCancelButton = true
+        self.searchBar.showsCancelButton = true
     }
-       
+    
     // Logic for searchBar cancel button
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-       searchBar.showsCancelButton = false // remove cancel button
-       searchBar.text = "" // reset search text
-       searchBar.resignFirstResponder() // remove keyboard
-       filteredRestaurants = restaurantsArray // reset results to display
-       tableView.reloadData()
+        searchBar.showsCancelButton = false // remove cancel button
+        searchBar.text = "" // reset search text
+        searchBar.resignFirstResponder() // remove keyboard
+        filteredRestaurants = restaurantsArray // reset results to display
+        tableView.reloadData()
     }
-    
-    
     
 }
 
